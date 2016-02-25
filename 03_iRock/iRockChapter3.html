@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>iRock-Chapter 3-Miryana Yotova</title>
+<style type="text/css"> 
+	body, html{ width:100%; 
+			   height:100%; 
+			   margin:0px; 
+			   padding:0px;
+	}
+</style>
+
+<script type="text/javascript" src="cookie.js"></script>
+<script type="text/jscript">
+var userName;
+
+function resizeRock()
+{
+	var x = (document.body.clientHeight - 100) * 0.7;
+	document.getElementById("iRock").style.height = x + "px";
+}
+
+function greetUser()
+	{
+	if(navigator.cookieEnabled)
+		userName = readCookie("irock_username");
+	if(userName)
+		alert("Hi, " + userName + ", I missed you!");
+	else	
+		alert("Hi, I am your pet Rock!"); 	
+	}
+
+function touchRock()
+	{
+	if(userName)
+		{
+		alert("I like that, " + userName + "!");
+		}
+	else
+		{
+		userName = prompt("What is your name?");
+		if(userName)
+			{
+			alert("Nice to meet you, " + userName + "!");
+		if(navigator.cookieEnabled)
+			writeCookie("irock_username", userName, 5 * 365);
+		else	
+			alert("Hey, cookies are not supported in your browser. Sorry, I won" + "'" + "t remember you later.");	
+			}
+		}
+	
+	document.getElementById("iRock").src = "images/rock_happy.png";
+	setTimeout("document.getElementById('iRock').src = 'images/rock.png';", 7000);	
+	}
+	
+</script>
+
+</head>
+
+<body onLoad="resizeRock(); greetUser();" onResize="resizeRock();">
+	<div style="margin-top:100px; text-align:center";>
+	<img src="images/rock.png" id="iRock" alt="iRock" style="cursor:pointer" onClick="touchRock();" />
+    </div>
+</body>
+</html>

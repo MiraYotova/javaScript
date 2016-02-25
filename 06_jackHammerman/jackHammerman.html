@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Miryana Yotova - Jack Hammerman</title>
+<script type="text/javascript">
+var imgJack = new Array();
+imgJack[0] = "images/jackhammer0.gif";
+imgJack[1] = "images/jackhammer1.gif";
+imgJack[2] = "images/jackhammer2.gif";
+imgJack[3] = "images/jackhammer3.gif";
+imgJack[4] = "images/jackhammer4.gif";
+imgJack[5] = "images/jackhammer5.gif";
+imgJack[6] = "images/jackhammer6.gif";
+imgJack[7] = "images/jackhammer7.gif";
+imgJack[8] = "images/jackhammer8.gif";
+imgJack[9] = "images/jackhammer9.gif";
+imgJack[10] = "images/jackhammer10.gif";
+
+
+var curJackImg = 0;
+var timerJack;
+
+function printName(title)
+{
+	document.write(title)
+}
+	
+
+
+function startBouncing() {
+	timerJack=setInterval ("changeImg()", 50);
+}
+	
+function changeImg()
+{	 
+	if(curJackImg == 10) 
+		curJackImg = 0;		
+	else 
+		curJackImg = curJackImg +1;
+	document.getElementsByTagName("img")[0].src = imgJack[curJackImg];
+}
+</script>
+
+</head>
+
+<body>
+<script> 
+printName("Jack Hammerman"); 
+</script>
+
+<br />
+<img name="jackImg" src="images/jackhammer10.gif" alt="jackHammerman" onmouseover="startBouncing();" onmouseout="clearInterval(timerJack);" />
+
+</body>
+</html>

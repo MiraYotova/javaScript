@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stick Figure - Miryana Yotova</title>
+
+<link href="css/styleStickFigur.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+// Welcome
+	var curScene = 0
+
+function changeScene(decision)
+{	
+	// clear message var
+	var message = "";
+	
+// Switch
+	switch (curScene)
+	{
+	// Case 0
+		case 0:
+		curScene = 1;
+		message = "Let the journey begin!";
+		break;
+			
+	// Case 1
+		case 1:
+			if(decision == 1)
+			{
+			curScene = 2;
+			message = "You've arrived at the cottage in the woods.";
+			}
+		
+			else
+			{
+			curScene = 3;
+			message = "You are on the brige."
+			}
+		break;
+		
+	// Case 2
+		case 2:
+			if(decision == 1)
+			{
+			curScene = 4;
+			message = "Peeked through the window. Oh, no, a WITCH !!!"
+			}
+			
+			else
+			{
+			curScene = 5;
+			message = "Oh, no! A witch! You just were eaten by her! GAME OVER!"	
+			}
+		break;
+		
+	// Case 3
+		case 3:
+			if(decision == 1)
+			{
+			curScene = 6;
+			message = "The giant troll lives here. You just became his lunch. GAME OVER!"
+			}
+			
+			else
+			{
+			curScene = 7;
+			message = "Oops! A troll!."	
+			}
+		break;
+		
+	// Case 4
+		case 4:
+		if(decision == 1)
+			{
+			curScene = 8;
+			}
+			
+			else
+			{
+			curScene = 5;
+			message = "Oh, no! You just were eaten by her! GAME OVER!"
+			}
+		break;
+		
+	// Case 5 - back to begining
+		case 5:
+		curScene = 0;
+		break;
+	
+	// Case 6 - back to begining
+		case 6:
+		curScene = 0;
+		break;
+	
+	// Case 7
+		case 7:
+		if(decision == 1)
+			{
+			curScene = 6;
+			message = "No, no, no... You just were eaten by the troll. GAME OVER!!!"
+			}
+		
+		else
+			{
+			curScene = 9;
+			}
+		break;
+	}
+
+document.getElementById("sceneImg").src = "images/scene" + curScene + ".png";
+	if (message != "")
+	alert(message);
+}
+</script>
+</head>
+
+<body>
+	<div id="divStyle">
+    	<img id="sceneImg" src="images/scene0.png" alt="Stick Figure Adventure"/>
+		
+        <p id="text">Where do you want to go? Choose between:</p>
+
+        <input type="button" class="bttn" name="decision1" value="1" onClick="changeScene(1)">
+        <input type="button" class="bttn" name="decision2" value="2" onClick="changeScene(2)">   
+        
+    </div> 
+</body>
+</html>

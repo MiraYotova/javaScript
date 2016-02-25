@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Miryana Yotova - Homework 2</title>
+
+<link rel="stylesheet" type="text/css" href="homework2style.css" />
+
+<script type="text/javascript">
+	function calculateData()
+	{		
+		const TAX = 0.09;
+		
+         var numSalesPrice = parseFloat(document.getElementById("salesPrice").value);
+			if (isNaN(numSalesPrice))
+			numSalesPrice = 0;
+
+			 if (document.getElementById("salesPrice").value == "") 
+				{
+				alert("Enter Sales Price");
+				document.getElementById("salesPrice").value = 0;
+				}
+			
+			else if (isNaN(document.getElementById("salesPrice").value))			
+				{
+				alert("Please, add a number.");
+				document.getElementById("salesPrice").value = 0;
+				}
+
+		
+		var totalDue;
+		taxDue = parseFloat(document.getElementById("salesPrice").value) * TAX;
+		totalDue = parseFloat(document.getElementById("salesPrice").value) + taxDue;
+	    document.getElementById("salesPrice").value = "$" + numSalesPrice.toFixed(2);
+		document.getElementById("taxDue").value = "$" +  taxDue.toFixed(2);
+		document.getElementById("total").value = "$" + totalDue.toFixed(2);
+	
+	}
+	
+</script>
+
+</head>
+
+<body>	
+	<form id="frame">
+    	<div class="field">
+        	Sales price: <input type="text" id="salesPrice" name="salesPrice" value="" autofocus >
+        </div>
+        
+        <div class="field">
+        	Sales Tax Rate: <input type="text" id="taxRate" name="taxRate" value="9%" disabled="disabled" />
+        </div>
+        
+        <div class="field">
+        	Tax Due: <input type="text" id="taxDue" name="taxDue" value="" disabled="disabled" />
+        </div>
+        
+        <div class="field">
+        	TOTAL DUE: <input type="text" id="total" name="total" value="" disabled="disabled" /> 
+         				<br/>
+                        <input type="button" id="btn" value="Calculate" onClick="calculateData();" />
+         </div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Miryana Yotova - Homework3 - Timer</title>
+<style type="text/css">
+div{ 
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+}
+
+#bttn1{ 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #F60;
+}
+
+.text{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: grey;}
+	
+</style>
+<script type="text/javascript">
+var Timer1;
+
+function startTimer()
+{
+	Timer1=setTimeout("myNewCode()", 3 * 1000);
+}
+
+function myNewCode()
+{
+	
+	document.open();
+	document.write("<body style='width:100%; height:100%; background-color: #4E2100;'> <div style='margin-top:100px; text-align:center;'> <h2 style='color:orange; font-family:Arial, Helvetica, sans-serif;'>HA-HA-HA!</h2> <br> <img src='images/halloween.png' id='halloween' alt='halloween'/><br><br><br> <input type='button' name'back' value='Go back' style='cursor:pointer; font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#F60;' onClick='history.go(-1);'></div></body>")
+	document.close();
+}
+
+</script>
+
+</head>
+
+<body>
+	<div id="frame">
+        <img src="images/questionmark.jpeg" alt="questionmark"/>
+        <br>
+        <input type="button" name="startBttn" id="bttn1" value="Curious?" style="cursor:pointer;" onClick="startTimer()">         
+        <br>
+    	<br>
+        <p class="text">
+        Click and wait for 3seconds.
+        </p>
+        
+	</div>    
+</body>
+</html>

@@ -1,0 +1,126 @@
+ <!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Miryana Yotova - Movie Seats</title>
+<script type="text/javascript">
+var seat = [[ true, true, false, true, true, true, false, true, true ],
+			[ false, false, true, true, true, false, false, false, true, ],
+			[ true, false, false, true, false, true, false, false, true ],
+			[ false, false, true, true, false, true, true, true, false ]];
+var sellSeat = -1;
+
+function initSeat()
+{
+	for (var i = 0; i < seat.length; i++)
+	{
+		for (var j = 0; j < seat[i].length; j++)
+		{
+			if (seat[i][j]) 
+			{
+			document.getElementById("seat" + (i * seat[i].length + j)).src = "images/seat_avail.png";
+			document.getElementById("seat" + (i * seat[i].length + j)).alt = "Available seat";
+			}
+		
+			else 
+			{
+			document.getElementById("seat" + (i * seat[i].length + j)).src = "images/seat_unavail.png";
+			document.getElementById("seat" + (i * seat[i].length + j)).alt = "unAvailable seat";
+			}
+		}
+	}
+}
+
+function findSeat()
+{
+	if (sellSeat >= 0)
+	{
+		sellSeat = -1;
+		initSeat();
+	}
+	
+	var i = 0, finished = false;
+	while (i < seat.length && !finished)
+	{
+		for (var j = 0; j < seat[i].length; j++)
+		{
+			if (seat[i][j] && seat[i][j+1] && seat[i][j+2])
+			{
+				sellSeat = i * seat[i].length + j;
+				document.getElementById("seat" + (i * seat[i].length + j)).src = "images/seat_select.png";
+				document.getElementById("seat" + (i * seat[i].length + j)).alt = "Your seat";
+				document.getElementById("seat" + (i * seat[i].length + j + 1)).src = "images/seat_select.png";
+				document.getElementById("seat" + (i * seat[i].length + j + 1)).alt = "Your seat";
+				document.getElementById("seat" + (i * seat[i].length + j + 2)).src = "images/seat_select.png";
+				document.getElementById("seat" + (i * seat[i].length + j + 2)).alt = "Your seat";
+
+			
+				var accept = confirm("Seats " + (j + 1) + " through " + (j + 3) + " in a Row " + (i +1) + " are available. Accept?");
+				
+				if (accept)
+				{
+				finished = true;
+				break;
+				}
+			
+				else 
+				{
+					sellSeat = -1;
+					document.getElementById("seat" + (i * seat[i].length + j)).src = "images/seat_avail.png";
+					document.getElementById("seat" + (i * seat[i].length + j)).alt = "Available seat";
+					document.getElementById("seat" + (i * seat[i].length + j + 1)).src = "images/seat_avail.png";
+					document.getElementById("seat" + (i * seat[i].length + j + 1)).alt = "Available seat";
+					document.getElementById("seat" + (i * seat[i].length + j + 2)).src = "images/seat_avail.png";
+					document.getElementById("seat" + (i * seat[i].length + j + 2)).alt = "Available seat";
+				} //end else
+			}// end if (seat[i] && seat[i+1] && seat[i+2]) row 41
+		}
+		i++;
+	}// end while
+}
+
+</script>
+</head>
+
+<body onLoad="initSeat();">
+<div style="margin-top:25px; text-align:center">
+	<img id="seat0" src="" alt="" />
+    <img id="seat1" src="" alt="" />
+	<img id="seat2" src="" alt="" />
+	<img id="seat3" src="" alt="" />
+	<img id="seat4" src="" alt="" />
+	<img id="seat5" src="" alt="" />
+	<img id="seat6" src="" alt="" />
+    <img id="seat7" src="" alt="" />
+	<img id="seat8" src="" alt="" /><br />
+	<img id="seat9" src="" alt="" />
+    <img id="seat10" src="" alt="" />
+	<img id="seat11" src="" alt="" />
+	<img id="seat12" src="" alt="" />
+	<img id="seat13" src="" alt="" />
+	<img id="seat14" src="" alt="" />
+	<img id="seat15" src="" alt="" />
+    <img id="seat16" src="" alt="" />
+	<img id="seat17" src="" alt="" /><br />
+    <img id="seat18" src="" alt="" />
+    <img id="seat19" src="" alt="" />
+	<img id="seat20" src="" alt="" />
+	<img id="seat21" src="" alt="" />
+	<img id="seat22" src="" alt="" />
+	<img id="seat23" src="" alt="" />
+	<img id="seat24" src="" alt="" />
+    <img id="seat25" src="" alt="" />
+	<img id="seat26" src="" alt="" /><br />
+    <img id="seat27" src="" alt="" />
+    <img id="seat28" src="" alt="" />
+	<img id="seat29" src="" alt="" />
+	<img id="seat30" src="" alt="" />
+	<img id="seat31" src="" alt="" />
+	<img id="seat32" src="" alt="" />
+	<img id="seat33" src="" alt="" />
+    <img id="seat34" src="" alt="" />
+	<img id="seat35" src="" alt="" /><br />
+    <input type="button" id="findseats" value="Find Seats" onClick="findSeat();" />
+</div>
+</body>
+</html>

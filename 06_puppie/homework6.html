@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Miryana Yotova - Homework 6</title>
+<style type="text/css">
+h1 {
+	text-align: center;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top: 100px;
+}
+
+#img {
+	text-align: center;
+	margin-top: 50px;
+	cursor: pointer;
+}
+</style>
+
+<script type="text/javascript">
+var imgPuppy = new Array()
+imgPuppy[0] = "images/puppy0.gif";
+imgPuppy[1] = "images/puppy1.gif";
+imgPuppy[2] = "images/puppy2.gif";
+imgPuppy[3] = "images/puppy3.gif";
+imgPuppy[4] = "images/puppy4.gif";
+imgPuppy[5] = "images/puppy5.gif";
+
+var curImg = 0;
+var myTimer;
+
+function runPuppy() 
+{
+	myTimer=setInterval ("changeImg()", 100);
+}
+
+function changeImg()
+{	 
+	if(curImg == imgPuppy.length -1) 
+		curImg = 0;		
+	else 
+		curImg++;
+		document.getElementsByTagName("img")[0].src = imgPuppy[curImg];
+}
+
+function stopPuppy()
+{
+	clearInterval(myTimer);	
+}
+
+
+function printText(title)
+{
+	document.write(title);	
+}
+</script>
+</head>
+
+<body>
+<script type="text/javascript">
+printText("<h1>Running Puppy</h1>");
+</script>
+
+<div id="img">
+<img src="images/puppy0.gif" alt="" onMouseOver="runPuppy();" onMouseOut="stopPuppy();">
+</div>
+</body>
+</html>

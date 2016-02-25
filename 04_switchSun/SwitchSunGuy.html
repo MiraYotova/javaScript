@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Miryana Yotova - Homework 4 - Switch Sun Guy</title>
+<script type="text/javascript">
+var curSun = ""
+
+function changeMood(xValue)
+{var message = ""
+
+	switch (xValue)
+	{
+		case "select":
+		curSun = "question";
+		message	= "Please make a selection or go back to bed!";
+		break;
+		
+		case "happy":
+		curSun = "happy";
+	    message = "I am glad you are happy.";
+		break;
+
+		case "sad":
+		curSun = "sad";
+		message = "I am sorry you are sad.";
+		break;
+		
+		case "cool":
+		curSun = "cool";
+		message = "It is great you are feeling cool.";
+		break;
+		
+		case "unsure":
+		curSun = "unsure";
+		message = "I hope you get past that soon.";
+		break;
+	}
+	
+	document.getElementById("sunImg").src = "Images/" + curSun + "Sun" + ".jpg";
+	
+	if (message != "")
+	alert(message);
+}
+</script>
+</head>
+
+<body>
+<div style="margin-top: 100px; text-align: center;" >
+	<img src="images/questionSun.jpg" alt="Sun and questionmark" id="sunImg" />
+    <br />
+	<select onChange="changeMood(this.value);" id="dropDown">
+    	<option value="select">Select</option>
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        <option value="cool">Cool</option>
+        <option value="unsure">Unsure</option>
+    </select>
+</div>
+</body>
+</html>

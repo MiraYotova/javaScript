@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#divStyle {
+	margin-top: 100px;
+	text-align: center;
+}
+
+#text {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #063;
+	font-size: 12px;
+}
+
+.bttn {
+	cursor: pointer;
+	color: #FFF;
+	background-color: #9C0;
+	border: 2px solid;
+	border-color: #063;
+	border-radius: 2em;
+}
+
+.bttn:hover {
+		color: #063;
+}
+
